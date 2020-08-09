@@ -1,0 +1,142 @@
+<style>
+  ngx-datatable {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+  td{
+    border: 2px solid #dddddd;
+    text-align: center;
+    padding: 30px;
+    margin-left: auto;
+  margin-right: auto;
+  }
+ 
+  tr:nth-child(even) {
+    background-color: #dddddd;
+    text-align: center;
+  }
+  h1{
+    text-align: center;
+  }
+  .material{
+    font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  
+  }
+  .div {
+    margin: 0,auto;
+  
+}
+.mainDiv {
+  width: 1000px;
+  height: 1000px;
+    margin: 0 auto
+}
+.redTd{
+  height: 10px;
+  width: 1000px;
+  font-size: 700%;
+
+}
+.div.name{
+  font-size: 150%;
+}
+
+  </style>
+<div class="mainDiv">
+
+<h1>Front End Developer Assignment</h1>
+<div class="container" >
+<table>
+<div>
+  <tr>
+    <td class="pie" >
+  <canvas id='pieChart'  style=" height: 190px; width: 400px;"></canvas>
+</td>
+<td class="redTd">
+  {{redper}}%
+
+    <img src="assets/images/image1.png" class="user_icon" alt="" width="50" height="100"/>
+</td>
+  </tr>
+</div>
+</table>
+<div>
+  <table>
+    <tr>
+      <td class="profile" width="400" height="100">
+        <img src="assets/images/profile.png" class="user_icon" alt="" width="50" height="100"/>
+      </td>
+      <td class="profile_detail" width="600" height="100">
+        <tr>
+         <label  > <h2 for="name" style="color:black;font-size:20px;">Name:{{name}}</h2></label>
+         <label><h2 for="username" style="color:black;font-size:20px;">Username:{{user_name}}</h2></label>
+         <label> <h2 for="name" style="color:black;font-size:20px;">Email:{{email}}</h2></label>
+          </tr>
+        </td>
+      
+    </tr>
+  </table>
+ </div>
+ <div class="table_box">
+  
+  <ngx-datatable class="material" 
+  [rows]="rows" 
+   [columnMode]="'force'"
+  [headerHeight]="50" 
+  [footerHeight]="50"
+   [scrollbarH]="true" 
+   [rowHeight]="'auto'" 
+   [limit]="10"
+   draggable="false"
+   >
+
+  <ngx-datatable-column [sortable]="false" name="S.No"  >
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.id}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column [sortable]="false" name="Name" [width]="150">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.name}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [sortable]="false" name="User Name" [width]="150">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.username}}
+    </ng-template>
+  </ngx-datatable-column>
+  <!-- <ngx-datatable-column [sortable]="false" name="Email" [width]="150">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.email}}
+    </ng-template>
+  </ngx-datatable-column> -->
+  <ngx-datatable-column [sortable]="false" name="City" [width]="150">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.address.city}}
+    </ng-template>
+  </ngx-datatable-column>
+  <ngx-datatable-column [sortable]="false" name="Pincode" [width]="150">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.address.zipcode}}
+    </ng-template>
+  </ngx-datatable-column>
+
+  <ngx-datatable-column [sortable]="false" name="Company" [width]="150">
+    <ng-template let-row="row" ngx-datatable-cell-template>
+      {{row.company.name}}
+    </ng-template>
+  </ngx-datatable-column>
+
+</ngx-datatable>
+
+</div>
+ 
+ </div> 
+   
+</div>
+
